@@ -94,4 +94,4 @@
 
 ### 学习资料
 
-- [第六周](www.maijinta.top/doc/1.html)
+- [第六周](http://www.maijinta.top/doc/1.html)
