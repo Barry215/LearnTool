@@ -42,7 +42,7 @@
 
 - public
 - private
-- protect
+- protected
 - final
 - static
 
