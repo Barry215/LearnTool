@@ -95,3 +95,4 @@
 ### 学习资料
 
 - [第六周](http://www.maijinta.top/doc/1.html)
+- [第七周](http://www.maijinta.top/doc/2.html)
