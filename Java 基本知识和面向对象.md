@@ -117,7 +117,7 @@ do{
 
 ### 数据结构
 
- ![1234](../1234.png)
+  ![collection](http://www.maijinta.cn/user/file/collection.png)
 
 - Collection (接口)
 - List (接口)
@@ -163,7 +163,7 @@ while(it.hasNext()){
 
 
 
- ![map](../map.png)
+ ![map](http://www.maijinta.cn/user/file/map.png)
 
 - Map (接口)
   - HashMap (实现类)
