@@ -2,8 +2,14 @@
 
 ### 基本数据类型和运算符
 
+- byte
+- short
 - int
-- String
+- int[]
+- long
+- boolean
+- char
+- char[]
 - long
 - float
 - double
@@ -23,11 +29,14 @@
 - if
 
 ```java
-int a = 0;
-if(a == 1){
-    a = 0;
-}else{
-	a = 2;
+public int say(int word){
+  int a = word;
+  if(a == 1){
+      a = 0;
+  }else{
+      a = 2;
+  }
+  return a;
 }
 ```
 
@@ -66,12 +75,17 @@ for(int i = 0;i<10;i++){
 
 
 ```java
-int a = 10;
-while(a>0){
-  a--;
-  if(a == 3){
-    System.out.println("跳出循环");
-    break;
+public void speak(int key){
+  int a = key;
+  while(a>0){
+    a--;
+    if(a == 5){
+      System.out.println("跳出循环");
+      break;
+    }else if(a == 1){
+      System.out.println("结束方法");
+      return;
+    }
   }
 }
 ```
@@ -97,17 +111,77 @@ do{
 }while(a>3);
 ```
 
-- 5 > 4 ? "y" : "n"
+- 5 > 4 ? "y" : "n"   返回的是y
 
 
 
 ### 数据结构
 
-- list
-  - ArrayList
-- set
-- map
-  - HashMap
+ ![1234](../1234.png)
+
+- Collection (接口)
+- List (接口)
+  - ArrayList (实现类)
+    - 非线程安全
+  - Vector (实现类)
+    - 线程安全
+
+
+```java
+List<Object> objectList = new ArrayList<Object>();
+Object object1 = new Object();
+Object object2 = new Object();
+objectList.add(object1);
+object2 = objectList.get(0);
+objectList.remove(0);
+```
+
+- Set (接口)
+  - HashSet (实现类)
+    - 不能有重复的元素
+
+
+```java
+Collection books = new HashSet();
+books.add("01");
+books.add("02");
+```
+
+
+
+- Iterator (接口)
+  - 只能用于Collection的遍历
+
+
+```java
+Iterator it = books.iterator();
+while(it.hasNext()){
+  String book = (String)it.next();
+  it.remove();
+}
+```
+
+
+
+ ![map](../map.png)
+
+- Map (接口)
+  - HashMap (实现类)
+
+
+```java
+Map map = new HashMap();
+map.put("boy","凯杰");
+map.put("girl","青娜");
+if(map.containKey("boy")){
+  String name = map.get("boy");
+  for(String type : map.keySet()){
+    name = map.remove(type);
+    System.out.println(name);
+  }
+}
+```
+
 
 
 
@@ -132,6 +206,12 @@ do{
 ### 面向对象
 
 - 思想
+
+
+```java
+Object object = new Object();
+```
+
 - 应用
 - 示例
 
@@ -168,7 +248,7 @@ str = String.valueOf(bm);
 //将 char 数组 bm 转换成字符串
 ```
 
-- String既是一个类，也是数据类型
+- String是一个引用类型，不是基本数据类型
 - StringBuffer
   - 线程安全的
 - StringBuilder
@@ -189,7 +269,8 @@ char charAt(int index) //返回指定索引处的 char 值。
 String concat(String str) //将指定字符串连接到此字符串的结尾。
 boolean	contains(CharSequence s) //当且仅当此字符串包含指定的 char 值序列时，返回 true。
 boolean	equals(Object anObject) //将此字符串与指定的对象比较。
-int	indexOf(int ch) //返回指定字符在此字符串中第一次出现处的索引。
+int	indexOf(String str) //返回指定字符在此字符串中第一次出现处的索引(从0开始)。
+int lastindexOf(String str) //返回指定字符在此字符串中最后一次出现处的索引。
 boolean	isEmpty() //当且仅当 length() 为 0 时返回 true。
 int	length() //返回此字符串的长度。
 String replace(char oldChar, char newChar) // 返回一个新的字符串，替换此字符串中出现的所有oldChar
