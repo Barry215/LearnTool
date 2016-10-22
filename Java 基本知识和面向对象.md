@@ -10,7 +10,6 @@
 - boolean
 - char
 - char[]
-- long
 - float
 - double
 - !
@@ -63,7 +62,7 @@ switch(a){
 ```java
 for(int i = 0;i<10;i++){
   System.out.println("我循环啦！");
-  if(a == 3){
+  if(i == 3){
     System.out.println("跳出循环");
     continue;
   }
@@ -812,7 +811,7 @@ public static void main(String[] args) {
 ### 加密类
 
 - Hash 算法
-  - 它的算法的特征是不可逆性，并且才计算的时候所有的数据都参与了运算，其中任何一个数据变化了都会导致计算出来的Hash值完全不同，所以通常用来校验数据是否正确或用作身份验证。
+  - 它的算法的特征是不可逆性，并且在计算的时候所有的数据都参与了运算，其中任何一个数据变化了都会导致计算出来的Hash值完全不同，所以通常用来校验数据是否正确或用作身份验证。
 - MD5
   - 最常用的哈希算法
 
