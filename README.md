@@ -41,21 +41,20 @@
 
 ### 第八周
 
-- java MD5
 - java IO
 - java Exception
 - java 泛型
 - java 反射基础
 - java 多线程
 - java 注解
-- java 设计模式
+- java 邮箱
+- java 验证码
+- java Socket
 
 ### 第九周
 
-- TCP/IP，UDP，Http和socket
+- java 设计模式
 - FTP
-- java 邮箱
-- java 验证码
 - Linux 命令
 - 数据库
 - JDBC
@@ -64,6 +63,11 @@
 
 - HTML
 - CSS
+- TCP/IP，UDP，Http和socket
+- Session
+- Cookie
+- Token
+- OAuth
 - JSP
 - Servlet
 - Tomcat
@@ -96,3 +100,4 @@
 
 - [第六周](http://www.maijinta.top/doc/1.html)
 - [第七周](http://www.maijinta.top/doc/2.html)
+- [第八周](http://www.maijinta.top/doc/3.html)
