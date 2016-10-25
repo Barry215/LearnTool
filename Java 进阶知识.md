@@ -232,7 +232,66 @@ System.out.println(c1==c2);
 
 ### 多线程
 
-- ​
+- 通过实现Runable接口
+
+```java
+public class DisplayMessage implements Runnable
+{
+   private String message;
+   public DisplayMessage(String message)
+   {
+      this.message = message;
+   }
+   public void run()
+   {
+      while(true)
+      {
+         System.out.println(message);
+      }
+   }
+}
+```
+
+- 通过继承Thread类本身
+
+```java
+public class GuessANumber extends Thread
+{
+   private int number;
+   public GuessANumber(int number)
+   {
+      this.number = number;
+   }
+   public void run()
+   {
+      System.out.println(number);
+   }
+}
+```
+
+- 测试
+
+```java
+public class ThreadClassDemo
+{
+   public static void main(String [] args)
+   {
+      Runnable hello = new DisplayMessage("Hello");
+      Thread thread1 = new Thread(hello);
+     //将该线程标记为守护线程或用户线程
+      thread1.setDaemon(true);
+     //改变线程名称，使之与参数 name 相同
+      thread1.setName("hello");
+     //使该线程开始执行
+      thread1.start();
+     
+      Thread thread2 = new GuessANumber(27);
+      thread2.start();
+   }
+}
+```
+
+
 
 ### IO处理
 
