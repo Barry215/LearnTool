@@ -313,9 +313,9 @@ public class ThreadClassDemo
 - 相对路径和绝对路径
 
 ```java
-publicstaticvoidtest1(){
-  Filefile1=newFile(".\\test1.txt");
-  Filefile2=newFile("D:\\workspace\\test\\test1.txt");
+public void test(){
+  File file1=new File("\\test1.txt");
+  File file2=new File("D:\\workspace\\test\\test1.txt");
   System.out.println("-----默认相对路径：取得路径不同------");
   System.out.println(file1.getPath());
   System.out.println(file1.getAbsolutePath());
@@ -328,8 +328,8 @@ publicstaticvoidtest1(){
 ```java
 得到的结果：
 -----默认相对路径：取得路径不同------
-.\test1.txt
-D:\workspace\test\.\test1.txt
+\test1.txt
+D:\workspace\test\test1.txt
 -----默认绝对路径:取得路径相同------
 D:\workspace\test\test1.txt
 D:\workspace\test\test1.txt
@@ -339,14 +339,77 @@ D:\workspace\test\test1.txt
 因为getPath()得到的是构造file的时候的路径。
 getAbsolutePath()得到的是全路径
 如果构造的时候就是全路径那直接返回全路径
-如果构造的时候试相对路径，返回当前目录的路径+构造file时候的路径
+如果构造的时候是相对路径，返回当前目录的路径+构造file时候的路径
 ```
 
 - 字符流和字节流的主要区别
   - 字节流读取的时候，读到一个字节就返回一个字节；  字符流使用了字节流读到一个或多个字节（中文对应的字节数是两个，在UTF-8码表中是3个字节）时。先去查指定的编码表，将查到的字符返回。
   - 字节流可以处理所有类型数据，如：图片，MP3，AVI视频文件，而字符流只能处理字符数据。只要是处理纯文本数据，就要优先考虑使用字符流，除此之外都用字节流
+- 输入和输出
+  - 输入(InputStream)是指从文件输入到内存（程序），输出(OutputStream)是指从内存（程序）输出到文件
 - 字节流
+
+```java
+public class FileTest{
+  public static void main(String[] args){
+    try{
+      File file = new File("D:\\test.txt");
+
+      //获取输出流
+      //里面true参数表示不覆盖原文件，直接在文件后面追加添加内容
+      FileOutputStream out = new FileOutputStream(file, true);
+      String s = "Hello,world!\r\n";
+      out.write(s.getBytes());
+      out.flush();
+      out.close();
+
+      //获取输入流
+      FileInputStream in = new FileInputStream(file);
+      byte[] b = new byte[100];
+      in.read(b, 0, b.length);
+      System.out.println(new String(b));
+      in.close();
+    } catch (FileNotFoundException e){
+      e.printStackTrace();
+    } catch (IOException e){
+      e.printStackTrace();
+    }
+  }
+}
+```
+
 - 字符流
+
+```java
+public class FileTest2{
+  
+  public static void main(String[] args){
+    File file = new File("D:\\test.txt");
+    try{
+      FileWriter fw = new FileWriter(file,true);
+      fw.write("Hello,world!\r\n");
+      fw.flush();
+      fw.close();
+
+      FileReader fr = new FileReader(file);
+      int i=0;
+      String s ="";
+      while( ( i = fr.read() )!= -1){
+       s = s +(char)i;
+      }
+      System.out.println(s);
+      
+      } catch (FileNotFoundException e){
+      	e.printStackTrace();
+      } catch (IOException e){
+      	e.printStackTrace();
+      }
+    }
+}
+```
+
+
+
 - 相互转化
 
 ```java
@@ -457,7 +520,22 @@ public boolean sendEmail(){
 
 ### 验证码
 
-- ​
+- [生成验证码](http://www.imooc.com/learn/283)
+- [生成图片验证码](http://www.imooc.com/learn/585)
+
+
+
+### 二维码
+
+- [java生成二维码](http://www.imooc.com/learn/531)
+
+
+
+### Excel导入导出
+
+- [学习资料](http://www.imooc.com/learn/354)
+
+
 
 ### 反射
 
