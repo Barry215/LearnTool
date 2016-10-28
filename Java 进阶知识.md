@@ -517,18 +517,15 @@ public boolean sendEmail(){
 ```
 
 
-
 ### 验证码
 
 - [生成验证码](http://www.imooc.com/learn/283)
 - [生成图片验证码](http://www.imooc.com/learn/585)
 
 
-
 ### 二维码
 
 - [java生成二维码](http://www.imooc.com/learn/531)
-
 
 
 ### Excel导入导出
@@ -539,7 +536,74 @@ public boolean sendEmail(){
 
 ### 反射
 
-- ​
+- 动态语言
+
+  - Python，Ruby是动态语言，C++，Java，C#不是动态语言。但是JAVA有着一个非常突出的动态相关机制：Reflection(反射)，用在Java身上指的是我们可以于运行时加载、探知、使用编译期间完全未知的classes。换句话说，Java程序可以加载一个运行时才得知名称的class，获悉其完整构造（但不包括methods定义），并生成其对象实体、或对其fields设值、或唤起其methods。
+
+- 概念
+
+  - Java反射机制是指在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制
+
+- 静态编译
+
+  - 在编译时确定类型，绑定对象，即通过
+
+- 动态编译
+
+  - 运行时确定类型，绑定对象。动态编译最大限度发挥了java的灵活性，体现了多态的应用，有以降低类之间的藕合性
+
+- 优点
+
+  - 一个大型的软件，不可能一次就把把它设计的很完美，当这个程序编译后，发布了，当发现需要更新某些功能时，我们不可能要用户把以前的卸载，再重新安装新的版本，假如这样的话，这个软件肯定是没有多少人用的。采用静态的话，需要把整个程序重新编译一次才可以实现功能的更新，而采用反射机制的话，它就可以不用卸载，只需要在运行时才动态的创建和编译，就可以实现该功能。
+
+- 缺点
+
+  - 对性能有影响。使用反射基本上是一种解释操作，我们可以告诉JVM，我们希望做什么并且它满足我们的要求。这类操作总是慢于只直接执行相同的操作。
+
+- Object
+
+  - 该类是所有类的父类
+
+- Class类
+
+  - 类是java.lang.Class类的实例对象，而Class是所有类的类
+
+  ```java
+  //Class c = new Class();不能这样构建一个Class
+  //因为构造方法是私有的
+  private  Class(ClassLoader loader) { 
+      classLoader = loader; 
+  }
+  ```
+
+  - 得到Class对象的3种方法
+
+  ```java
+  //这说明任何一个类都有一个隐含的静态成员变量class，这种方式是通过获取类的静态成员变量class得到的
+  Class c1 = Code.class;
+
+  //code1是Code的一个对象，这种方式是通过一个类的对象的getClass()方法获得的
+  Code code1 = new Code();
+  Class c2 = code1.getClass();
+
+  //这种方法是Class类调用forName方法，通过一个类的全量限定名获得
+  Class c3 = Class.forName("com.trigl.reflect.Code");
+  ```
+
+  - c1、c2、c3都是Class的对象，他们是完全一样的，而且有个学名，叫做Code的类类型（class type）
+  - 我们可以通过类类型知道一个类的属性和方法，并且可以调用一个类的属性和方法，这就是反射的基础
+
+  ```java
+  System.out.println(c1.getName());
+  System.out.println(c2.getName());
+  System.out.println(c3.getName());
+  //输出
+  com.trigl.reflect.Code
+  com.trigl.reflect.Code
+  com.trigl.reflect.Code
+  ```
+
+  ​
 
 ### 注解
 
