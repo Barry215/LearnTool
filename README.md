@@ -49,7 +49,6 @@
 - java 注解
 - java 邮箱
 - java 验证码
-- java Socket
 
 ### 第九周
 
