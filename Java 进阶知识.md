@@ -2,6 +2,37 @@
 
 ### 异常
 
+![exception](http://www.maijinta.cn/user/files/exception.jpg)
+
+- Error
+
+  - 是程序无法处理的错误，表示运行应用程序中较严重问题。
+
+- Exception
+
+  - 是程序本身可以处理的异常。
+
+- java中的异常处理机制
+
+  - 捕获异常
+
+  - ```java
+    try {  
+        // 可能会发生异常的程序代码  
+    } catch (Type1 id1){  
+        // 捕获并处置try抛出的异常类型Type1  
+    }catch (Type2 id2){  
+        //捕获并处置try抛出的异常类型Type2  
+    }finally {  
+    }
+    ```
+
+  - 抛出异常
+
+  - ```java
+    throw new MyException("这是一个异常");//异常信息
+    ```
+
 - **示例**
 
 ```java
