@@ -53,6 +53,7 @@
 ### 第九周
 
 - java 设计模式
+- java 实践
 - FTP
 - Linux 命令
 - 数据库
@@ -67,16 +68,15 @@
 - Cookie
 - Token
 - OAuth
-- JSP
-- Servlet
-- Tomcat
 
 ### 第十一周
 
+- JSP
+- Servlet
+- Tomcat
 - JavaScript
 - JQuery
 - Bootstrap
-- FlatUl
 
 ### 第十二周
 

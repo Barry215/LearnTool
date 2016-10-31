@@ -453,7 +453,7 @@ while(it.hasNext()){
 
 
 
- ![map](http://www.maijinta.cn/user/file/map.png)
+ ![map](http://www.maijinta.cn/user/files/map.png)
 
 - Map (接口)
   - HashMap (实现类)
