@@ -409,7 +409,7 @@ public class StaticBlock {
 
 ### 数据结构
 
-  ![collection](http://www.maijinta.cn/user/file/collection.png)
+  ![collection](http://www.maijinta.cn/user/files/collection.png)
 
 - Collection (接口)
 - List (接口)
