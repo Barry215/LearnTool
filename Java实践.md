@@ -55,6 +55,47 @@ ping www.baidu.com #向百度发送数据包，回收数据包
  logout #退出
 ```
 
+##### 查看时间：`date`
+
+```shell
+#返回
+2016年11月 3日 星期四 14时27分28秒 CST
+```
+
+##### 查看日期：`cal`
+
+##### 查看有哪些用户登录了系统：`who`
+
+##### 查看当前是哪个用户登录了系统：`whoami`
+
+##### 查看历史命令：`history`
+
+##### 查看命令帮助：`whatis`,`info`,`which`,`man`,`--help`
+
+```shell
+#使用方法
+whatis command
+info command
+which command
+man command
+command -h
+command -help
+command --help
+#在只记得部分命令关键字的场合，我们可通过man -k来搜索；
+#需要知道某个命令的简要说明，可以使用whatis；而更详细的介绍，则可用info命令；
+#查看命令在哪个位置，我们需要使用which；
+#而对于命令的具体参数及使用方法，我们需要用到强大的man；
+#会在终端列出所有可用的命令,可以使用任何命令的-h或-help选项来查看该命令的具体用法。
+```
+
+##### 查文件或目录的大小：`du`
+
+```shell
+du -h 文件名 
+#查看文件夹大小 du -h T01
+#查看文件大小 du -h tt.txt
+```
+
 ##### 查看文件与目录的命令：`ls`
 
 ```shell
@@ -100,6 +141,14 @@ mkdir -v 文件夹 #每次创建新目录都显示信息
 rmdir d101 #删除空目录d101  
 rmdir d102 d103 #同时删除两个空目录d102,d103  
 rmdir -p d104/d105/ #删除d105目录后，若d104是空的，则连d104一起删除  
+```
+
+##### 搜寻指定的字符串：`grep`
+
+```shell
+grep "<string>" <file-name>
+grep -i "<string>" <file-name>    #在搜寻时会忽略字符串的大小写。
+grep -r "<string>" <file-name>    #则会在当前工作目录的文件中递归搜寻指定的字符串。
 ```
 
 ##### 查找某目录下文件：`find`
@@ -191,18 +240,26 @@ ps -a #不与terminal有关的所有进程
 ps -u #有效用户的相关进程  
 ps -x #一般与a参数一起使用，可列出较完整的信息  
 ps -l #较长，较详细地将PID的信息列出
+ps -ef #查看系统正在运行的进程
 # 实例
-ps aux  # 查看系统所有的进程数据  
+ps aux  # 列出目前所有的正在内存当中的程序
 ps ax   # 查看不与terminal有关的所有进程  
 ps -lA  # 查看系统所有的进程数据  
 ps axjf # 查看连同一部分进程树状态
 ```
 
+##### 显示CPU占用量较大的进程：`top`
+
+```shell
+top    #top命令会默认按照CPU的占用情况，显示占用量较大的进程
+top -u <username>    #查看某个用户的CPU使用排名情况。
+```
+
 ##### 判断文件的基本数据：`file`
 
 ```shell
-file filename  
-#例如：  
+file filename
+#例如：
 file ger.txt
 输出 ger.txt:ASCII text
 ```
@@ -254,6 +311,8 @@ tail -n 文件名     #查看文件的后n行
 ##### 改变文件所属用户组：`chgrp`
 
 ```shell
+chgrp 组名 文件名
+chgrp g1015 echo.sh
 chgrp -R 组名 文件名
 -R #进行递归的持续对所有文件和子目录更改  
 # 例如：  
@@ -269,24 +328,49 @@ chown wsg echo.sh
 
 #更改文件夹的属主：
 #语法：chown -R 用户名 文件名
-chown -R u101 * #单独更改文件夹的拥有者(-R表示文件夹的所有子内容全部更改,*表示所有本目录文件)
+chown -R u101 Desktop/ #单独更改文件夹的拥有者(-R表示文件夹的所有子内容全部更改,*表示所有本目录文件)
 
+#同时更改文件的拥有者和所属组
+#语法：chown 用户名:组名 文件名
+chown u101:g1015 install.log.syslog #同时更改文件的拥有者和所属组
+
+#同时更改文件夹和文件夹下的所有内容的拥有者和所属组
+#语法：chown -R 用户名:组名 文件名
+chown -R u101:g1015 test01 #同时更改文件的拥有者和所属组
 ```
 
 ##### 改变文件的权限：`chmod`
 
 ```shell
+chmod 权限 文件名
+如：chmod 755 filename
+ls -l命令
+获取：drwxr-xr-x  2 root root 4.0K 11-06 18:30 Desktop
+解释：
+r: read       可读
+w: write      可写
+x：execute    可执行
+d表示是个普通文件夹
+-表示普通文件
+r用数字4表示，w用数字2表示，x用数字1表示。
+第一个rwx，表示该文件所属的用户对其所拥有的操作权限
+第二个rwx，表示与该文件所属用户在同组内的用户对其所拥有的操作权限
+第三个rwx，表示不与该文件所属用户在同组内的用户对其所拥有的操作权限
+第一个root:表示该文件夹属于哪个用户
+第二个root:表示该文件夹属于哪个组
+
 chmod -R xyz 文件或目录  
 -R #进行递归的持续更改，即连同子目录下的所有文件都会更改
 # 例如：  
-chmod -R 0755 file # 把file的文件权限改变为-rxwr-xr-x
+chmod -R 755 file # 把file的文件权限改变为-rxwr-xr-x
 # 同时，chmod还可以使用u（user）、g（group）、o（other）、a（all）和+（加入）、-（删除）、=（设置）跟rwx搭配来对文件的权限进行更改。
 chmod g+w file # 向file的文件权限中加入用户组可写权限
 ```
 
-##### 文本编辑：`vim`
+##### 文本编辑：`vim`,`vi`
 
 ```shell
+#Vim是从 vi 发展出来的一个文本编辑器
 vim
 #在命令行中输入vim,进入vim编辑器
 vim filename
@@ -298,6 +382,8 @@ Esc按键
 #退出i(插入)命令进行其它命令使用
 :w
 #在编辑的过程中保存文件,相当于word中的ctrl+s
+:w 文件名
+#另存为
 :wq
 #保存文件并退出
 :q!
@@ -308,12 +394,123 @@ dd
 #删除行
 ```
 
+#### 更多命令
 
+[29个你必须知道的Linux命令](http://www.jianshu.com/p/462c9e20ffb5)
 
 
 
 ### Git
 
+#### 简介
 
+Git是目前世界上最先进的分布式版本控制系统，以其优秀的控制能力独傲全球
+
+#### 集中式版本控制系统-SVN,CVS
+
+版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑，所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。
+
+#### 分布式版本控制系统-Git
+
+分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件A，你的同事也在他的电脑上改了文件A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
+
+#### Git学习笔记
+
+[Gi基本操作](http://www.jianshu.com/p/1d5e97222cad)
+
+[工作区、暂存区和版本库的关系](http://www.jianshu.com/p/4416c3c61dba)
+
+[撤销或回退版本](http://www.jianshu.com/p/f0d6a5a4325f)
+
+[连接远程仓库](http://www.jianshu.com/p/8468d43074f3)
+
+[协同工作](http://www.jianshu.com/p/e7ddad179c9d)
+
+[搭建git服务器](http://www.jianshu.com/p/ee8c379ef888)
+
+#### Git命令
+
+![git](www.maijinta.cn/user/files/git.png)
+
+- workspace: 本地的工作目录。（记作A）
+- index：缓存区域，临时保存本地改动。（记作B）
+- local repository: 本地仓库，只想最后一次提交HEAD。（记作C）
+- remote repository：远程仓库。（记作D）
+
+```shell
+#初始化
+git init //创建
+git clone /path/to/repository //检出
+git config --global user.email "you@example.com" //配置email
+git config --global user.name "Name" //配置用户名
+
+#操作
+git add <file> // 文件添加，A → B
+git add . // 所有文件添加，A → B
+
+git commit -m "代码提交信息" //文件提交，B → C
+git commit --amend //与上次commit合并, *B → C
+
+git push origin master //推送至master分支, C → D
+git pull //更新本地仓库至最新改动， D → A
+git fetch //抓取远程仓库更新， D → C
+
+git log //查看提交记录
+git status //查看修改状态
+git diff//查看详细修改内容
+git show//显示某次提交的内容
+
+#撤销操作
+git reset <file>//某个文件索引会回滚到最后一次提交， C → B
+git reset//索引会回滚到最后一次提交， C → B
+git reset --hard // 索引会回滚到最后一次提交， C → B → A
+
+git checkout // 从index复制到workspace， B → A
+git checkout -- files // 文件从index复制到workspace， B → A
+git checkout HEAD -- files // 文件从local repository复制到workspace， C → A
+
+#分支相关
+git checkout -b branch_name //创建名叫“branch_name”的分支，并切换过去
+git checkout master //切换回主分支
+git branch -d branch_name // 删除名叫“branch_name”的分支
+git push origin branch_name //推送分支到远端仓库
+git merge branch_name // 合并分支branch_name到当前分支(如master)
+git rebase //衍合，线性化的自动， D → A
+
+#冲突处理
+git diff //对比workspace与index
+git diff HEAD //对于workspace与最后一次commit
+git diff <source_branch> <target_branch> //对比差异
+git add <filename> //修改完冲突，需要add以标记合并成功
+
+#其他
+gitk //开灯图形化git
+git config color.ui true //彩色的 git 输出
+git config format.pretty oneline //显示历史记录时，每个提交的信息只显示一行
+git add -i //交互式添加文件到暂存区
+```
+
+#### Git使用规范提醒
+
+- 使用Git过程中，必须通过创建分支进行开发，坚决禁止在主干分支上直接开发。review的同事有责任检查其他同事是否遵循分支规范。
+- 在Git中，默认是不会提交空目录的，如果想提交某个空目录到版本库中，需要在该目录下新建一个 .gitignore 的空白文件，就可以提交了
+- 把外部文件纳入到自己的 Git 分支来的时候一定要记得是先比对，确认所有修改都是自己修改的，然后再纳入。不然，容易出现代码回溯
+- 多人协作时，不要各自在自己的 Git 分支开发，然后发文件合并。正确的方法应该是开一个远程分支，然后一起在远程分支里协作。不然，容易出现代码回溯（即别人的代码被覆盖的情况）
+- 每个人提交代码是一定要 git diff 看提交的东西是不是都是自己修改的。如果有不是自己修改的内容，很可能就是代码回溯
+- review 代码的时候如果看到有被删除掉的代码，一定要确实是否是写代码的同事自己删除的。如果不是，很可能就是代码回溯
+
+#### Git使用规范
+
+Git 使用规范流程 - [http://www.ruanyifeng.com/blog/2015/08/git-use-process.html](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
+团队中的 Git 实践 - [https://ourai.ws/posts/working-with-git-in-team/](https://ourai.ws/posts/working-with-git-in-team/)
+构家网 git 团队协作使用规范 v2 - [http://wenku.baidu.com/view/e1430d1b7f1922791788e81e](http://wenku.baidu.com/view/e1430d1b7f1922791788e81e)
+
+#### 扩展阅读
+
+Git Book - [https://git-scm.com/book/zh/](https://git-scm.com/book/zh/)
+git简明指南 - [http://rogerdudler.github.io/git-guide/index.zh.html](http://rogerdudler.github.io/git-guide/index.zh.html)
+常用 Git 命令清单 - [http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+猴子都能懂的GIT入门 - [http://backlogtool.com/git-guide/cn/](http://backlogtool.com/git-guide/cn/)
+Git教程 - [http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
 ### 
