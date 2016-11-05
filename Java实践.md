@@ -104,9 +104,105 @@
 
 ### 数据库
 
+#### 主键
+
+关系型数据库中的一条记录中有若干个属性，若其中某一个属性组(注意是组)能唯一标识一条记录，该属性组就可以成为一个主键比如 ：
+
+> **学生表(学号，姓名，性别，班级)**
+>
+> 其中每个学生的学号是唯一的，学号就是一个主键。
+>
+> **用户表(用户名、密码、登录级别)**
+>
+> 其中用户名是唯一的, 用户名就是一个主键。
+>
+> 总之主键是能确定一条记录的唯一标识。
+
+#### 外键
+
+外键用于与另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性。比如，A表中的一个字段，是B表的主键，那他就可以是A表的外键。
+
+#### 基本的增删改查
+
+- 增加：insert into table1(field1,field2) values(value1,value2)
+- 删除：delete from table1 where 范围
+- 更新：update table1 set field1=value1 where 范围
+- 查询：select field1,field2 from table1 where 范围
+
 
 
 ### JDBC
+
+#### 准备
+
+导入相应jar包
+
+#### 使用步骤
+
+第一步：加载驱动类通过,java.lang.Class的静态方法forName(String className)实现
+
+```java
+Class.forName("com.mysql.jdbc.Driver");//这行语句需要捕获，也就是加上try catch
+```
+
+第二步：创建数据库的连接
+
+1. 要连接数据库，需要向java.sql.DriverManager请求并获得Connection对象， 该对象就代表一个数据库的连接。使用DriverManager的getConnectin(String url , String username ,  String password )方法传入指定的欲连接的数据库的路径、数据库的用户名和密码来获得。 
+
+```java
+String url = "jdbc:mysql://localhost:3306/数据库名称" ;    
+String username = "用户名" ;   
+String password = "密码" ;   
+try{   
+    Connection conn = DriverManager.getConnection(url , username , password ) ;   
+}catch(SQLException se){   
+    System.out.println("数据库连接失败！");   
+    se.printStackTrace() ;   
+}   
+```
+
+第三步：创建语句
+
+个人不推荐使用Statement,容易发生SQL注入的问题，推荐使用PreparedStatement，可以预编译数据库语句。
+
+```java
+String sql = "select field1, field2, field3 from table1"
+PreparedStatement pre = conn.prepareStatement(sql);
+ResultSet rs = pre.executeQuery();
+while(rs.next()){
+	System.out.println(rs.getInt("field1"));
+  	//这里认为field1是int类型所以用getInt方法，其他类型也有相应的方法，使用的时候注意不要出错即可。
+}
+```
+
+第四步：关闭JDBC对象
+
+操作完成以后要把所有使用的JDBC对象全都关闭，以释放JDBC资源，关闭顺序和声明顺序相反
+
+```java
+try {
+	if (rs!=null)
+    	rs.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+        	if (pre != null) {
+				pre.close();
+            }
+        } catch (SQLException e) {
+             e.printStackTrace();
+        } finally {
+             try {
+             	if (conn!=null){
+                	conn.close();
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              }
+        }
+}
+```
 
 
 
@@ -119,7 +215,7 @@
   - 账号：www
   - 密码：23q9JI8BeNUY
 
-![internet中的FTP和Http区别](www.maijinta.cn/user/files/internet.png)
+![internet中的FTP和Http区别](http://www.maijinta.cn/user/files/internet.png)
 
 - ftp和http的区别
   - Http，FTP是应用层协议，HTTP用来传输超文本而FTP用来传文件
@@ -195,7 +291,7 @@ command --help
 ##### 查文件或目录的大小：`du`
 
 ```shell
-du -h 文件名 
+du -h 文件名
 #查看文件夹大小 du -h T01
 #查看文件大小 du -h tt.txt
 ```
@@ -220,6 +316,15 @@ cd /root/Docements # 切换到目录/root/Docements
 cd -               # 切换到上一次的目录
 cd ..              # 切换到上层目录
 cd ../path         # 切换到上层目录中的path目录中，“..”表示上一层目录
+```
+
+##### 覆盖文件内容：`echo`
+
+```shell
+#使用>指令覆盖文件原内容并重新输入内容，若文件不存在则创建文件。
+echo "Raspberry" > test.txt
+#使用>>指令向文件追加内容，原内容将保存。
+echo "Intel Galileo" >> test.txt
 ```
 
 ##### 创建文件：`touch`
@@ -332,8 +437,8 @@ rm -f #就是force的意思，忽略不存在的文件，不会出现警告消�
 rm -i #互动模式，在删除前会询问用户是否操作  
 rm -r #递归删除，最常用于目录删除，它是一个非常危险的参数
 # 例如：
-rm -i file # 删除文件file，在删除之前会询问是否进行该操作  
-rm -fr dir # 强制删除目录dir中的所有文件
+rm -i file #删除文件file，在删除之前会询问是否进行该操作  
+rm -fr dir #强制删除目录dir中的所有文件
 ```
 
 ##### 获取进程运行情况：`ps`
@@ -405,7 +510,7 @@ less 文件名        #按回车一行，空格一页。可以通过上下键上
 cat 文件名         #查看文件的所有内容  
 cat -n 文件名      #查看文件的所有内容，并显示行数   
 head -n 文件名     #查看文件的前n行，n表示你要看的行数。  
-tail -n 文件名     #查看文件的后n行  
+tail -n 文件名     #查看文件的后n行
 ```
 
 > 1. cat命令可以一次显示整个文件，如果文件比较大，使用不是很方便；
@@ -520,6 +625,8 @@ Git是目前世界上最先进的分布式版本控制系统，以其优秀的�
 
 #### Git学习笔记
 
+[window下配置SSH连接GitHub、GitHub配置ssh key](http://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html)
+
 [Gi基本操作](http://www.jianshu.com/p/1d5e97222cad)
 
 [工作区、暂存区和版本库的关系](http://www.jianshu.com/p/4416c3c61dba)
@@ -534,7 +641,7 @@ Git是目前世界上最先进的分布式版本控制系统，以其优秀的�
 
 #### Git命令
 
-![git](www.maijinta.cn/user/files/git.png)
+![git](http://www.maijinta.cn/user/files/git.png)
 
 - workspace: 本地的工作目录。（记作A）
 - index：缓存区域，临时保存本地改动。（记作B）
@@ -543,31 +650,34 @@ Git是目前世界上最先进的分布式版本控制系统，以其优秀的�
 
 ```shell
 #初始化
-git init //创建
-git clone /path/to/repository //检出
-git config --global user.email "you@example.com" //配置email
-git config --global user.name "Name" //配置用户名
+git version #查看git版本
+git init #创建
+git clone /path/to/repository #检出
+git config --global user.email "you@example.com" #配置email
+git config --global user.name "Name" #配置用户名
+ssh-keygen #创建SSH key
+#原理：首先由用户生成一对密钥，然后将公钥保存在SSH服务器用户的目录下.ssh子目录中的authorized_key文件里(/root/.ssh/authorized_key).私钥保存在本地计算机.当用户登陆时,服务器检查authorized_key文件的公钥是否与用户的私钥对应,如果相符则允许登入,否则拒绝.由于私钥只有保存在用户的本地计算机中,因此入侵者就算得到用户口令,也不能登陆到服务器.
 
 #操作
-git add <file> // 文件添加，A → B
-git add . // 所有文件添加，A → B
+git add <file>  #文件添加，A → B
+git add .       #所有文件添加，A → B
 
-git commit -m "代码提交信息" //文件提交，B → C
-git commit --amend //与上次commit合并, *B → C
+git commit -m "代码提交信息" #文件提交，B → C
+git commit --amend         #与上次commit合并, *B → C
 
-git push origin master //推送至master分支, C → D
-git pull //更新本地仓库至最新改动， D → A
-git fetch //抓取远程仓库更新， D → C
+git push origin master     #推送至master分支, C → D
+git pull                   #更新本地仓库至最新改动， D → A
+git fetch                  #抓取远程仓库更新， D → C
 
-git log //查看提交记录
-git status //查看修改状态
-git diff//查看详细修改内容
-git show//显示某次提交的内容
+git log     #查看提交记录
+git status  #查看修改状态
+git diff    #查看详细修改内容
+git show    #显示某次提交的内容
 
 #撤销操作
-git reset <file>//某个文件索引会回滚到最后一次提交， C → B
-git reset//索引会回滚到最后一次提交， C → B
-git reset --hard // 索引会回滚到最后一次提交， C → B → A
+git reset <file>   #某个文件索引会回滚到最后一次提交， C → B
+git reset          #索引会回滚到最后一次提交， C → B
+git reset --hard   #索引会回滚到最后一次提交， C → B → A
 
 #仅仅只是撤销已提交的版本库，不会修改暂存区和工作区
 git reset --soft 版本库ID
@@ -576,36 +686,36 @@ git reset --mixed 版本库ID
 #彻底将工作区、暂存区和版本库记录恢复到指定的版本库
 git reset --hard 版本库ID
 
-git checkout // 从index复制到workspace， B → A
-git checkout -- files // 文件从index复制到workspace， B → A
-git checkout HEAD -- files // 文件从local repository复制到workspace， C → A
+git checkout                #从index复制到workspace， B → A
+git checkout -- files       #文件从index复制到workspace， B → A
+git checkout HEAD -- files  #文件从local repository复制到workspace， C → A
 
 #分支相关
-git checkout -b branch_name //创建名叫“branch_name”的分支，并切换过去
-git checkout master //切换回主分支
-git branch -d branch_name // 删除名叫“branch_name”的分支
-git push origin branch_name //推送分支到远端仓库
-git merge branch_name // 合并分支branch_name到当前分支(如master)
-git rebase //衍合，线性化的自动， D → A
+git checkout -b branch_name     #创建名叫“branch_name”的分支，并切换过去
+git checkout master             #切换回主分支
+git branch -d branch_name       #删除名叫“branch_name”的分支
+git push origin branch_name     #推送分支到远端仓库
+git merge branch_name           #合并分支branch_name到当前分支(如master)
+git rebase                      #衍合，线性化的自动， D → A
 
 #冲突处理
-git diff //对比workspace与index
-git diff HEAD //对于workspace与最后一次commit
-git diff <source_branch> <target_branch> //对比差异
-git add <filename> //修改完冲突，需要add以标记合并成功
+git diff #对比workspace与index
+git diff HEAD #对于workspace与最后一次commit
+git diff <source_branch> <target_branch> #对比差异
+git add <filename> #修改完冲突，需要add以标记合并成功
 
 #删除
-git rm filename 移除文件(从暂存区和工作区中删除)
-git rm --cached filename 移除文件(只从暂存区中删除)
+git rm filename #移除文件(从暂存区和工作区中删除)
+git rm --cached filename #移除文件(只从暂存区中删除)
 
 #查看远端库
 git remote
 
 #其他
-gitk //开灯图形化git
-git config color.ui true //彩色的 git 输出
-git config format.pretty oneline //显示历史记录时，每个提交的信息只显示一行
-git add -i //交互式添加文件到暂存区
+gitk #开启图形化git
+git config color.ui true #彩色的 git 输出
+git config format.pretty oneline #显示历史记录时，每个提交的信息只显示一行
+git add -i #交互式添加文件到暂存区
 ```
 
 #### Git忽略文件
