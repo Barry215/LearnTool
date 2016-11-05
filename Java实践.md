@@ -2,9 +2,103 @@
 
 ### java设计模式
 
+#### 简单工厂模式
+
+- 思想
+  - 当你有很多类似的类需要实例化的时候，你可以建造一个工厂，让工厂来生产(实例化)它们
+- 举例
+  - 自定义了很多异常，每次程序运行出错都需要生成不同类型的异常，我们可以用异常工厂来生产这些异常
+  - 你是一个身怀满技的工人，想制作电脑做生意，但是电脑制作工艺更新太快，一个人学不过来，所以开一家工厂，让工厂来生产电脑，这样你就不用学这么多电脑制作的知识了。你只需要吩咐工厂生产。
+
 #### 工厂模式
 
+- 思想
+  - 建立在简单工厂的思想下，我们把具体工厂生产实例的方法抽象出来，再建一个抽象型的工厂，用于制定生产规范
+- 举例
+  - 你现在有了一家生产电脑的大工厂，专门生产各种类型的电脑。后来，这家工厂太大，生产的电脑型号也太多，你为了管理和分工方便，把工厂拆分成苹果电脑工厂，平板电脑工厂，普通电脑工厂三家工厂，然后再创建一个工厂监制会，专门统一每个工厂必须要有的流程和加工。然后每个工厂都按照监制会的标准去生产不同类型的电脑。
+
 #### 单例模式
+
+- 思想
+  - 这个世界上有些东西是独一无二的，我们必须保证它只能有一个实例。
+
+- 特征
+
+  - 单例类只能有一个实例
+  - 单例类必须自行创建自己的唯一的实例
+  - 单例类必须给所有其他对象提供这一实例
+  - `Singleton`(单例):在单例类的内部实现只生成一个实例，同时它提供一个静态的`getInstance()`方法，让使用者可以访问它的唯一实例
+  - 为了防止在外部对其实例化，将其构造函数设计为`私有`
+  - 在单例类内部定义了一个`Singleton`类型的**静态**对象，作为外部共享的唯一实例。
+
+- 举例
+  - 你是个好男人，把工厂赚的钱都给了老婆，但是老婆只能有一个
+
+- 实现方式
+
+  - 线程不安全
+
+  - ```java
+    public class Singleton {
+        private static Singleton instance;
+        private Singleton (){}
+        public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+        }
+    }
+    ```
+
+  - synchronized [更多](http://www.jianshu.com/p/29854dc7bd86)
+
+    - Java语言的关键字，当它用来修饰一个方法或者一个代码块的时候，能够保证在同一时刻最多只有一个线程执行该段代码。
+
+  - 用法
+
+    - 修饰一个类，其作用的范围是synchronized后面括号括起来的部分，作用的对象是这个类的所有对象
+    - 修饰一个方法，被修饰的方法称为同步方法，其作用的范围是整个方法，作用的对象是调用这个方法的对象
+    - 修改一个静态的方法，其作用的范围是整个静态方法，作用的对象是这个类的所有对象
+    - 修饰一个代码块，被修饰的代码块称为同步语句块，其作用的范围是大括号{}括起来的代码，作用的对象是调用这个代码块的对象
+
+  - 线程安全
+
+  - ```java
+    public class Singleton {
+        private static Singleton instance;
+        private Singleton (){}
+        public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+        }
+    }
+    ```
+
+
+#### 建造者模式
+
+- 思想
+  - 在工厂模式下，多了一层导演者。可以简单理解成用户做一件事情，会先找外包公司，而不是直接找工厂。外包公司会根据用户的需求来选择合适的工厂来生产。
+- 举例
+  - 后来你年纪大了，工厂的事情管的太累，所以你让邀请一个人当这家公司的CEO，你当董事局主席。工厂的业务都是CEO来负责，无论多开了几家工厂，和你都没有关系。你有事的话就吩咐CEO就好。
+
+#### 适配器模式
+
+- 思想
+  - 我们笔记本用的到充电器其实就是个适配器，笔记本电脑的工作电压是20V，而我国的家庭用电是220V，如何让20V的笔记本电脑能够在220V的电压下工作？就是靠这个充电器搞定的。在软件开发中，有时也存在类似这种不兼容的情况，我们也可以像引入一个电源适配器一样引入一个称之为适配器的角色来协调这些存在不兼容的结构，这种设计方案即为适配器模式。
+- 举例
+  - 你的公司遇到互联网大潮，需要转型到线上销售，但是你原来的公司没有电商部门，只有线下销售，所以你花重金请来了一个电商团队，帮你协调线上和线下的联合销售。
+
+#### 学习资料
+
+[设计模式总结](http://blog.csdn.net/chenssy/article/category/1424118)
+
+[23种设计模式](http://wiki.jikexueyuan.com/project/java-design-pattern/)
+
+[设计模式干货系列](http://www.jianshu.com/p/9bceeedaf658)
 
 
 
@@ -18,7 +112,17 @@
 
 ### FTP
 
+- 介绍
+  - FTP 是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为“文传协议”。用于Internet上的控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵守同一种协议以传输文件。在FTP的使用当中，用户经常遇到两个概念："下载"和"上传"。"下载"文件就是从远程主机拷贝文件至自己的计算机上；"上传"文件就是将文件从自己的计算机中拷贝至远程主机上。用Internet语言来说，用户可通过客户机程序向（从）远程主机上传（下载）文件。
+- ftp地址
+  - [ftp://www.maijinta.top](ftp://www.maijinta.top)
+  - 账号：www
+  - 密码：23q9JI8BeNUY
 
+![internet中的FTP和Http区别](www.maijinta.cn/user/files/internet.png)
+
+- ftp和http的区别
+  - Http，FTP是应用层协议，HTTP用来传输超文本而FTP用来传文件
 
 ### Linux
 
@@ -465,6 +569,13 @@ git reset <file>//某个文件索引会回滚到最后一次提交， C → B
 git reset//索引会回滚到最后一次提交， C → B
 git reset --hard // 索引会回滚到最后一次提交， C → B → A
 
+#仅仅只是撤销已提交的版本库，不会修改暂存区和工作区
+git reset --soft 版本库ID
+#仅仅只是撤销已提交的版本库和暂存区，不会修改工作区
+git reset --mixed 版本库ID
+#彻底将工作区、暂存区和版本库记录恢复到指定的版本库
+git reset --hard 版本库ID
+
 git checkout // 从index复制到workspace， B → A
 git checkout -- files // 文件从index复制到workspace， B → A
 git checkout HEAD -- files // 文件从local repository复制到workspace， C → A
@@ -483,11 +594,53 @@ git diff HEAD //对于workspace与最后一次commit
 git diff <source_branch> <target_branch> //对比差异
 git add <filename> //修改完冲突，需要add以标记合并成功
 
+#删除
+git rm filename 移除文件(从暂存区和工作区中删除)
+git rm --cached filename 移除文件(只从暂存区中删除)
+
+#查看远端库
+git remote
+
 #其他
 gitk //开灯图形化git
 git config color.ui true //彩色的 git 输出
 git config format.pretty oneline //显示历史记录时，每个提交的信息只显示一行
 git add -i //交互式添加文件到暂存区
+```
+
+#### Git忽略文件
+
+在git中如果想忽略掉某个文件，不让这个文件提交到版本库中，可以使用修改根目录中 .gitignore 文件的方法（如无，则需自己手工建立此文件）
+
+```shell
+Git 中的文件忽略
+1. 共享式忽略新建 .gitignore 文件，放在工程目录任意位置即可。.gitignore 文件可以忽略自己。忽略的文件，只针对未跟踪文件有效，对已加入版本库的文件无效。
+2. 独享式忽略针对具体版本库 ：.git/info/exclude针对本地全局：git config --global core.excludefile ~/.gitignore
+忽略的语法规则：
+(#)表示注释
+(*)  表示任意多个字符; 
+(?) 代表一个字符;
+ ([abc]) 代表可选字符范围
+如果名称最前面是路径分隔符 (/) ，表示忽略的该文件在此目录下。
+如果名称的最后面是 (/) ，表示忽略整个目录，但同名文件不忽略。
+通过在名称前面加 (!) ，代表不忽略。
+例子如下：
+# 这行是注释
+*.a                   # 忽略所有 .a 伟扩展名的文件
+!lib.a                # 但是 lib.a 不忽略，即时之前设置了忽略所有的 .a
+/TODO                 # 只忽略此目录下 TODO 文件，子目录的 TODO 不忽略 
+build/                # 忽略所有的 build/ 目录下文件
+doc/*.txt             # 忽略如 doc/notes.txt, 但是不忽略如 doc/server/arch.txt
+
+#经测试发现，若要忽略一个文件夹下的部分文件夹，应该一个一个的标示。可能有更好的方法。
+#若test下有多个文件和文件夹。若要ignore某些文件夹，应该这个配置.gitignore文件。
+#若test下有test1，test2,test3文件。要track test3，则.gitignore文件为：
+test/test1
+test/test2
+!test/test3
+#若为：
+test/
+!test/test3 ，则不能track test3。
 ```
 
 #### Git使用规范提醒
@@ -511,6 +664,4 @@ Git Book - [https://git-scm.com/book/zh/](https://git-scm.com/book/zh/)
 git简明指南 - [http://rogerdudler.github.io/git-guide/index.zh.html](http://rogerdudler.github.io/git-guide/index.zh.html)
 常用 Git 命令清单 - [http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 猴子都能懂的GIT入门 - [http://backlogtool.com/git-guide/cn/](http://backlogtool.com/git-guide/cn/)
-Git教程 - [http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-
-### 
+缪雪峰Git教程 - [http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
