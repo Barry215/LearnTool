@@ -8,6 +8,8 @@
 
 [揭开RecyclerView的神秘面纱(三)：操作数据及添加分割线](http://www.jianshu.com/p/a3aac86523d2)
 
+[简单易用的 RecyclerView.Adapter 封装库](http://www.open-open.com/lib/view/open1479518526643.html)
+
 
 
 ### 轮播图
@@ -22,6 +24,12 @@
 
 
 
+### 支付
+
+[Android微信支付爬坑](http://www.open-open.com/lib/view/open1479350904960.html)
+
+
+
 ### Android Studio
 
 
@@ -29,6 +37,8 @@
 #### 教程
 
 [Android Studio教程从入门到精通](http://www.open-open.com/lib/view/open1433387390635.html)
+
+[Android Studio 使用推荐](http://www.open-open.com/lib/view/open1475497562965.html)
 
 
 
