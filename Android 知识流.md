@@ -139,11 +139,35 @@ alert_edittext.xml
 
 
 
+### Markdown
+
+[可以加载md的webview](https://github.com/falnatsheh/MarkdownView)
+
+[可以加载md的](https://github.com/qinci/MarkdownEditors)
+
+[Android平台下的富文本解析器，支持Html和Markdown](https://github.com/zzhoujay/RichText)
+
+[Android平台下的原生Markdown解析器](https://github.com/zzhoujay/Markdown)
+
+[上文的解释](http://blog.csdn.net/u014608640/article/details/53080027)
+
+
+
+
+
 ### 异步
 
 #### RxJava
 
-[给 Android 开发者的 RxJava 详解](https://gank.io/post/560e15be2dca930e00da1083)
+[给 Android 开发者的 RxJava 详解](https://gank.io/post/560e15be2dca930e00da1083) ✨
+
+[大头鬼的Rxjava译文](http://blog.csdn.net/lzyzsd/article/category/2767743)
+
+##### 操作符
+
+[高大上的操作符说明](http://mrfu.me/2016/01/10/RxWeekend/#tips7)
+
+[操作符分类](https://mcxiaoke.gitbooks.io/rxdocs/content/Operators.html)
 
 ##### demo
 
@@ -161,7 +185,7 @@ alert_edittext.xml
 
 [Retrofit2.0使用详解](http://blog.csdn.net/ljd2038/article/details/51046512)
 
-[Retrofit使用指南](http://www.jianshu.com/p/91ac13ed076d) ✨
+[Retrofit使用指南(内含请求日志打印)](http://www.jianshu.com/p/91ac13ed076d) ✨
 
 [Retrofit的json传输,文件下载和上传](http://blog.csdn.net/jiangxuqaz/article/details/50759239) ✨
 
@@ -190,6 +214,12 @@ alert_edittext.xml
 ### 蓝牙
 
 [普通蓝牙EDR连接，BLE蓝牙连接,示例，操作蓝牙打印机demo](https://github.com/vir56k/bluetoothDemo)
+
+
+
+### 发布APK
+
+ [Android Studio如何发布APK](http://blog.csdn.net/u014608640/article/details/53034916)
 
 
 
@@ -269,6 +299,34 @@ alert_edittext.xml
 - Action Bar处的搜索框
 - 二维码识别和扫描
 
+
+
+
+#### [微阅](https://github.com/YiuChoi/MicroReader)
+
+> 一个小而美的阅读客户端，包含微信精选，IT之家(去广告),果壳热门，知乎日报，和视频推荐栏目，每天更换主题。
+
+采用的技术：
+
+- Retrofit 的使用，包括使用 Http 缓存、converter 的使用等；
+- RxJava 的使用，包括配合 Retrofit、RxBus 的使用等；
+- MVP 架构实践，包括 presenter 的生命周期管理；
+- RecycleView + CardView 的使用；
+- 使用 Palette 从图片中取色；
+- 主题动态切换；
+- Android 4.4 及以上版本的状态栏适配；
+- FloatingActionButton 的自定义动作；
+- AppCompatActivity 配合 PreferenceFragment 实现 Material Design 的设置界面；
+- WebView 的使用，包括显示加载进度条、播放视频等；
+- VideoView 的使用，包括自定义按钮；
+- 动态切换 NavigationView 的菜单项
+- Android 抓包及逆向分析
+- 数据离线缓存
+- 使用Gradle多渠道打包及自定义编译的APK文件名
+- Activity滑动返回的实现
+- 夜间模式实践
+- 最新版本获取
+- 分享接口的实现
 
 
 
