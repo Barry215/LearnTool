@@ -258,12 +258,21 @@ public class Test{
 
 ### 修饰词
 
-- public
-  - 所有类都能直接访问
+| 类型        | 同类   | 同包   | 不同包子类 | 不同包非子类 |
+| --------- | ---- | ---- | ----- | ------ |
+| private   | yes  |      |       |        |
+| default   | yes  | yes  |       |        |
+| protected | yes  | yes  | yes   |        |
+| public    | yes  | yes  | yes   | yes    |
+
 - private
-  - 只有自己的类才能访问
+  - 除了class自己之外，任何人都不可以直接使用
+- default
+  - 类可以访问在同一个包中的其他类(朋友)的成员
 - protected
-  - 只有相同的包下的类才能访问
+  - 只有相同的包下的类(朋友)和自己的子类(子女)才能访问
+- public
+  - 该数据成员、成员函数是对所有用户开放的，所有用户都可以直接进行调用
 - final
   - final类不能被继承，没有子类，final类中的方法默认是final的
   - final方法不能被子类的方法覆盖，但可以被继承。
@@ -440,7 +449,7 @@ books.add("02");
 ```
 
 - Iterator (接口)
-  - 只能用于Collection的遍历
+  - **只能用于Collection的遍历**
 
 
 ```java
@@ -471,6 +480,27 @@ if(map.containKey("boy")){
   }
 }
 ```
+
+- 遍历Map
+
+```java
+Map<String, String> map = new HashMap<String, String>();
+for (Map.Entry<String, String> entry : map.entrySet()) {
+	entry.getKey();
+	entry.getValue();
+}
+```
+
+```java
+Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+while (iterator.hasNext()) {
+	Map.Entry<String, String> entry = iterator.next();
+	entry.getKey();
+	entry.getValue();
+}
+```
+
+
 
 
 

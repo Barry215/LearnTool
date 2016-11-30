@@ -75,6 +75,8 @@ alert_edittext.xml
 
 [简单易用的 RecyclerView.Adapter 封装库](http://www.open-open.com/lib/view/open1479518526643.html)
 
+[完美解决隐藏Listview和RecyclerView去掉滚动条和滑动到边界阴影的方案](http://www.voidcn.com/blog/ming2316780/article/p-5999345.html)
+
 
 
 #### 轮播图
@@ -97,6 +99,50 @@ alert_edittext.xml
 
 
 
+#### TabLayout
+
+[Design库-TabLayout属性详解](http://www.jianshu.com/p/2b2bb6be83a8)
+
+[Material Design：TabLayout的使用](http://www.jianshu.com/p/9c072bc99ebe)
+
+[TabLayout实现滑动标签页](http://blog.csdn.net/rosechan/article/details/51568130)
+
+ [去掉TabLayout下的阴影，AppBarLayout下的阴影](http://blog.csdn.net/dreamsever/article/details/52672739)
+
+
+
+#### ViewPager
+
+[FragmentPagerAdapter和FragmentStatePagerAdapter区别](http://blog.csdn.net/dreamzml/article/details/9951577)
+
+
+
+#### CoordinatorLayout
+
+[使用CoordinatorLayout打造一个炫酷的详情页](http://www.jianshu.com/p/5287d090e777)
+
+[一个神奇的控件——Android CoordinatorLayout与Behavior使用指南](http://www.jianshu.com/p/488283f74e69)
+
+
+
+#### Bottom Sheet
+
+[三分钟玩转Android Bottom Sheet](http://www.jianshu.com/p/e9e9931c510c)
+
+[使用Bottom Sheet实现底部菜单](http://www.jianshu.com/p/1024ad202683)
+
+[BottomSheets的使用](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0228/4008.html)
+
+[Android Bottom Sheet详解](http://blog.csdn.net/qibin0506/article/details/51002241)
+
+
+
+#### SwipeRefreshLayout
+
+[Android开发之SwipeRefreshLayout实现下拉刷新](http://www.jianshu.com/p/97ab87cfce47)
+
+
+
 ### UI效果
 
 #### 搜索框
@@ -109,7 +155,7 @@ alert_edittext.xml
 
 [仿知乎的侧滑删除](http://blog.csdn.net/tyk0910/article/details/51669205)
 
-[RecyclerView侧滑菜单，RecyclerView滑动删除，RecyclerView长按拖拽](http://www.jianshu.com/p/3ea18300f40c)
+[RecyclerView侧滑菜单，RecyclerView滑动删除，RecyclerView长按拖拽](http://www.jianshu.com/p/3ea18300f40c) ✨
 
 [RecyclerView的拖动、滑动删除](https://segmentfault.com/a/1190000005645907)
 
@@ -118,6 +164,12 @@ alert_edittext.xml
 #### 在列表滚动的时候显示/隐藏View
 
 [让 Toolbar 随着 RecyclerView 的滚动而显示 / 隐藏](http://gold.xitu.io/entry/56cd9c9dd342d30054ca35b8?utm_source=gold-miner&utm_medium=readme&utm_campaign=github)
+
+
+
+#### 底部弹窗
+
+[使用 DialogFragment 实现底部弹窗布局](http://www.wangchenlong.org/2016/08/07/1608/076-bottom-dialog-fragment/)
 
 
 
@@ -139,17 +191,41 @@ alert_edittext.xml
 
 
 
+### Android生命周期
+
+[分析 Activity 的生命周期](http://www.wangchenlong.org/2016/02/23/1603/235-activity-lifecycle/)
+
+
+
+### Android启动模式
+
+[分析 Activity 的启动模式](http://www.wangchenlong.org/2016/02/23/1603/234-activity-launch-mode/)
+
+
+
+### Fragment生命周期
+
+[Fragment的理解, Fragment的生命周期](http://www.jianshu.com/p/6095b626069c)
+
+
+
+### 调用系统图册和相机
+
+[Android实现用户头像更换，包括调用相机和系统相册，并裁剪返回](https://github.com/ZhouCP/PhotoDemo)
+
+
+
 ### Markdown
 
 [可以加载md的webview](https://github.com/falnatsheh/MarkdownView)
 
-[可以加载md的](https://github.com/qinci/MarkdownEditors)
+[Android Markdown编辑器](https://github.com/qinci/MarkdownEditors)
 
 [Android平台下的富文本解析器，支持Html和Markdown](https://github.com/zzhoujay/RichText)
 
 [Android平台下的原生Markdown解析器](https://github.com/zzhoujay/Markdown)
 
-[上文的解释](http://blog.csdn.net/u014608640/article/details/53080027)
+[上面的博文解释](http://blog.csdn.net/u014608640/article/details/53080027)
 
 
 
@@ -211,6 +287,12 @@ alert_edittext.xml
 
 
 
+### 即时通讯
+
+[源码提供！Android即时通讯和sns开源项目汇总](http://www.jianshu.com/p/b2ca52337fe5)
+
+
+
 ### 蓝牙
 
 [普通蓝牙EDR连接，BLE蓝牙连接,示例，操作蓝牙打印机demo](https://github.com/vir56k/bluetoothDemo)
@@ -231,7 +313,7 @@ alert_edittext.xml
 
 
 
-### Android Studio
+## Android Studio
 
 #### 教程
 
@@ -330,6 +412,7 @@ alert_edittext.xml
 
 
 
+
 ### 轮子
 
 [A library for debugging android databases and shared preferences](https://github.com/amitshekhariitbhu/Android-Debug-Database)
@@ -344,6 +427,47 @@ alert_edittext.xml
 
 
 
+[ViewPagerIndicator](https://github.com/LuckyJayce/ViewPagerIndicator)
+
+>  Indicator 取代 tabhost，实现网易顶部tab，新浪微博主页底部tab，引导页，无限轮播banner等效果，高度自定义tab和特效
+
+
+
+[GuideHelper](https://github.com/LuckyJayce/GuideHelper)
+
+> 新手引导页，轻松的实现对应的view上面的显示提示信息和展示功能给用户
+
+
+
+[LoadingLayoutDemo](https://github.com/weavey/LoadingLayoutDemo)
+
+> 项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了
+
+
+
+[Simple, pretty and powerful logger for android](https://github.com/orhanobut/logger)
+
+> 安卓的日志方案
+
+
+
+[Google百分比布局库的扩展](https://github.com/hongyangAndroid/android-percent-support-extend)
+
+> 对于android-percent-support的扩展库
+
+
+
+[RecyclerRefresh](https://github.com/leoleohan/RecyclerRefresh)
+
+>Android使用SwipeRefreshLayout和RecyclerView实现仿简书下拉刷新和上拉加载更多
+
+
+
+[BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+
+> Powerful and flexible RecyclerAdapter，封装了很多用法
+
+
 
 ### 代码开源协议
 
@@ -354,3 +478,5 @@ alert_edittext.xml
 ### 安卓笔记
 
 [AndroidNote](https://github.com/GcsSloop/AndroidNote)
+
+[Android开发总结](https://github.com/JohnTsaiAndroid/AndroidTips)
