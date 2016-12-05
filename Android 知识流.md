@@ -161,7 +161,7 @@ alert_edittext.xml
 
 
 
-#### 在列表滚动的时候显示/隐藏View
+#### 实现 Toolbar 随着 RecyclerView 的滚动而显示 / 隐藏 的效果
 
 [让 Toolbar 随着 RecyclerView 的滚动而显示 / 隐藏](http://gold.xitu.io/entry/56cd9c9dd342d30054ca35b8?utm_source=gold-miner&utm_medium=readme&utm_campaign=github)
 
