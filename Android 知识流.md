@@ -143,6 +143,24 @@ alert_edittext.xml
 
 
 
+#### TextView
+
+[TextView 实战之你真的懂我么？](http://blog.csdn.net/sdkfjksf/article/details/51317204)
+
+
+
+#### TextInputLayout
+
+[TextInputLayout 完全解析](http://m.blog.csdn.net/article/details?id=51957305)
+
+[【Android-UI】TextInputLayout的使用](http://m.blog.csdn.net/article/details?id=52193802)
+
+[EditText辅助控件—TextInputLayout](http://www.jianshu.com/p/9ad85a9fbfd4)
+
+[使用TextInputLayout创建一个登陆界面](http://www.jcodecraeer.com/a/basictutorial/2015/0821/3338.html)
+
+
+
 ### UI效果
 
 #### 搜索框

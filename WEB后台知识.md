@@ -1537,12 +1537,77 @@ JSP标准标签库（JSTL）是一个JSP标签集合，它封装了JSP应用的�
 
 
 
+##### `<c:if>` 标签
+
+```jsp
+<c:if test="${not empty item.publish_time}">
+内容
+</c:if>
+<c:if test="${item['domain']!=null}">
+内容
+</c:if>
+<c:if test="${!empty permissionMap}"> 
+内容
+</c:if>
+```
+
+
+
+##### `<c:forEach/>`标签
+
+```jsp
+标签的语法定义如下所示
+<c:forEach var="每个变量名字"   items="要迭代的list"   varStatus="每个对象的状态"
+begin="循环从哪儿开始"    end="循环到哪儿结束"    step="循环的步长">
+循环要输出的东西
+</c:forEach>
+
+举例
+<c:forEach items="${domainList }" var="item">
+<tr>
+	<td align="center" valign="middle">${item["domain"]==null?"&nbsp;":item["domain"]}</td>
+	<td align="center" valign="middle">
+  		<fmt:formatDate value="${item['bind_date']}" pattern="yyyy-MM-dd HH:mm:ss"/>
+	</td>
+	<td align="center" valign="middle">
+    	<c:if test="${item['domain']!=null}">
+    		<a href="javascript:;" id="${item['domain']}" class="del">&nbsp;</a>
+    	</c:if>
+   </td>
+</tr>  
+</c:forEach>
+```
+
+
+
+##### `<c:choose>` `<c:when>` `<c:otherwise>`  标签
+
+```jsp
+<c:set var="score">85</c:set>
+<c:choose>
+  <c:when test="${score>=90}">
+    你的成绩为优秀！
+  </c:when>
+  <c:when test="${score>=70&&score<90}">
+    您的成绩为良好!
+  </c:when>
+  <c:when test="${score>60&&score<70}">
+    您的成绩为及格
+  </c:when>
+  <c:otherwise>
+    对不起，您没有通过考试！
+  </c:otherwise>
+</c:choose>
+```
+
+
+
 #### 格式化标签
 
 JSTL格式化标签用来格式化并输出文本、日期、时间、数字。引用格式化标签库的语法如下：
 
 ```jsp
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 ```
 
 | 标签                      | 描述                   |
@@ -1566,7 +1631,7 @@ JSTL格式化标签用来格式化并输出文本、日期、时间、数字。�
 JSTL SQL标签库提供了与关系型数据库（Oracle，MySQL，SQL Server等等）进行交互的标签。引用SQL标签库的语法如下：
 
 ```jsp
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 ```
 
 | 标签                    | 描述                                     |
@@ -1585,7 +1650,7 @@ JSTL SQL标签库提供了与关系型数据库（Oracle，MySQL，SQL Server等
 JSTL XML标签库提供了创建和操作XML文档的标签。引用XML标签库的语法如下：
 
 ```jsp
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 ```
 
 | 标签        | 描述                          |
@@ -1599,7 +1664,7 @@ JSTL XML标签库提供了创建和操作XML文档的标签。引用XML标签库
 JSTL包含一系列标准函数，大部分是通用的字符串处理函数。引用JSTL函数库的语法如下：
 
 ```jsp
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 ```
 
 | 函数              | 描述                |

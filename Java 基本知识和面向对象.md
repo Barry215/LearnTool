@@ -24,6 +24,25 @@
 
 
 
+#### 注意点
+
+| 数据类型    | 封装类       | 特点                                       |
+| :------ | --------- | ---------------------------------------- |
+| int     | Integer   | int初始化是0，Integer初始化是null。Integer是int的封装类，可以实现和字符串的转换 |
+| char    | Character | char初始化是_，Character初始化是null              |
+| long    | Long      | long初始化是0，Long初始化是null                   |
+| byte    | Byte      | byte初始化是0，Byte初始化是null                   |
+| short   | Short     | short初始化是0，Short初始化是null                 |
+| float   | Float     | float初始化是0.0，Float初始化是null               |
+| double  | Double    | double初始化是0.0，Double初始化是null             |
+| boolean | Boolean   | boolean初始化是false，Boolean初始化是null         |
+
+>  PS：泛型定义时也不支持数据类型，只能是类
+>
+> 如`List<int>`就不行，但是`List<Integer>`可以
+
+
+
 ### 判断，筛选和循环
 
 - if
