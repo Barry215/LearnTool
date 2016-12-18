@@ -501,11 +501,15 @@ public class PreferenceUtils {
 
 [源码提供！Android即时通讯和sns开源项目汇总](http://www.jianshu.com/p/b2ca52337fe5)
 
+[练习环信即时通讯项目](https://github.com/jiangzehui/HX)
+
 
 
 ### 视频播放
 
 [TigerVideo](https://github.com/huyongli/TigerVideo)
+
+[Retrotfit2.1+Material Design+ijkplayer APP](https://github.com/jiangzehui/MD)
 
 
 
