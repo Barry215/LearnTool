@@ -1,6 +1,28 @@
 ## Android 知识流
 
+### Android 教程
+
+[Android官方培训课程中文版](https://github.com/kesenhoo/android-training-course-in-chinese)
+
+[android sdk 源码解析](https://github.com/LittleFriendsGroup/AndroidSdkSourceAnalysis)
+
+[掘金翻译计划](https://github.com/xitu/gold-miner)
+
+
+
 ### UI
+
+#### Android 图标网站
+
+[Android Material 材料风格图标LOGO生成器](http://jaqen.me/mdpub/)
+
+
+
+#### 自定义View
+
+[Android自定义view详解](http://shaohui.me/2016/07/08/Android%E8%87%AA%E5%AE%9A%E4%B9%89view%E8%AF%A6%E8%A7%A3/)
+
+
 
 #### 生成Dialog
 
@@ -76,6 +98,10 @@ alert_edittext.xml
 [简单易用的 RecyclerView.Adapter 封装库](http://www.open-open.com/lib/view/open1479518526643.html)
 
 [完美解决隐藏Listview和RecyclerView去掉滚动条和滑动到边界阴影的方案](http://www.voidcn.com/blog/ming2316780/article/p-5999345.html)
+
+[RecyclerView:实现带header的grid](http://www.open-open.com/lib/view/open1437662138631.html)
+
+[RecyclerView下拉刷新上拉加载](http://ittiger.cn/RecyclerView%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD.html)
 
 
 
@@ -161,11 +187,49 @@ alert_edittext.xml
 
 
 
+#### Spinner
+
+[nice-spinner](https://github.com/arcadefire/nice-spinner)
+
+[android-spinnerwheel](https://github.com/ai212983/android-spinnerwheel)
+
+[Material-Spinner](https://github.com/jaredrummler/Material-Spinner)
+
+[BetterSpinner](https://github.com/Lesilva/BetterSpinner)
+
+
+
+#### FloatingActionButton
+
+[FloatingActionButton](https://github.com/Clans/FloatingActionButton)
+
+[BoomMenu](https://github.com/Nightonke/BoomMenu)
+
+
+
 ### UI效果
 
 #### 搜索框
 
 [[译]Android Material 搜索框实现详细说明](http://www.jianshu.com/p/24dff5073e2c)
+
+
+
+#### 底部对话框
+
+[BottomDialog](https://github.com/shaohui10086/BottomDialog)
+
+
+
+#### 底部bar
+
+[Material-BottomNavigation](https://github.com/sephiroth74/Material-BottomNavigation)
+
+
+
+#### 列表加载更多
+
+[VistaReyclerView](https://github.com/shaohui10086/VistaReyclerView)
 
 
 
@@ -185,9 +249,29 @@ alert_edittext.xml
 
 
 
+#### Behavior
+
+[自定义Behavior的艺术探索-仿UC浏览器主页](http://www.jianshu.com/p/f7989a2a3ec2)
+
+[BehaviorDemo](https://github.com/CSnowStack/BehaviorDemo)
+
+
+
 #### 底部弹窗
 
 [使用 DialogFragment 实现底部弹窗布局](http://www.wangchenlong.org/2016/08/07/1608/076-bottom-dialog-fragment/)
+
+
+
+#### 有标签的文本控件
+
+[TagEditText](https://limedroid.github.io/2016/11/19/TagEditText/)
+
+
+
+#### 灵活布局
+
+[flexbox-layout](https://github.com/google/flexbox-layout)
 
 
 
@@ -196,6 +280,18 @@ alert_edittext.xml
 #### FlatBuffer
 
 [数据交换格式FlatBuffers介绍](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0831/3395.html)
+
+#### 后台服务下载网络数据
+
+[在service里开线程用Hander来传递信息](http://www.open-open.com/code/view/1430626559031)
+
+
+
+### 数据验证
+
+#### 正则
+
+[检查邮箱名、电话号码、用户密码、邮政编码](http://www.open-open.com/code/view/1428562396385)
 
 
 
@@ -247,6 +343,100 @@ alert_edittext.xml
 
 
 
+### 缓存
+
+#### SharedPreferences
+
+```java
+public class PreferenceUtils {
+
+    private static final String PREFERENCE_FILE_NAME = "config";
+    private SharedPreferences sharedPreferences;
+
+    private SharedPreferences.Editor shareEditor;
+
+    private static volatile PreferenceUtils preferenceUtils = null;
+
+
+    protected PreferenceUtils(Context context) {
+//        sharedPreferences = context.getSharedPreferences(PREFERENCE_FILE_NAME, Context.MODE_PRIVATE);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+        shareEditor = sharedPreferences.edit();
+    }
+
+    public static PreferenceUtils getInstance(Context context) {
+        if (preferenceUtils == null) {
+            synchronized (PreferenceUtils.class) {
+                if (preferenceUtils == null) {
+                    preferenceUtils = new PreferenceUtils(context.getApplicationContext());
+                }
+            }
+        }
+        return preferenceUtils;
+    }
+
+    public String getStringParam(String key) {
+        return getStringParam(key, "");
+    }
+
+    public String getStringParam(String key, String defaultString) {
+        return sharedPreferences.getString(key, defaultString);
+    }
+
+    public void saveParam(String key, String value) {
+        shareEditor.putString(key, value).apply();
+    }
+
+    public boolean getBooleanParam(String key) {
+        return getBooleanParam(key, false);
+    }
+
+    public boolean getBooleanParam(String key, boolean defaultBool) {
+        return sharedPreferences.getBoolean(key, defaultBool);
+    }
+
+    public void saveParam(String key, boolean value) {
+        shareEditor.putBoolean(key, value).apply();
+    }
+
+    public int getIntParam(String key) {
+        return getIntParam(key, 0);
+    }
+
+    public int getIntParam(String key, int defaultInt) {
+        return sharedPreferences.getInt(key, defaultInt);
+    }
+
+    public void saveParam(String key, int value) {
+        shareEditor.putInt(key, value).apply();
+    }
+
+    public long getLongParam(String key) {
+        return getLongParam(key, 0);
+    }
+
+    public long getLongParam(String key, long defaultInt) {
+        return sharedPreferences.getLong(key, defaultInt);
+    }
+
+    public void saveParam(String key, long value) {
+        shareEditor.putLong(key, value).apply();
+    }
+
+    public void removeKey(String key) {
+        shareEditor.remove(key).apply();
+    }
+}
+```
+
+[SharedPreferences封装类SPUtils](http://www.open-open.com/code/view/1421140395968)
+
+#### 清除缓存
+
+[Android清除本地数据缓存代码](http://www.open-open.com/code/view/1450186362672)
+
 
 
 ### 异步
@@ -287,6 +477,8 @@ alert_edittext.xml
 
 [Retrofit基本用法和流程分析](http://www.jianshu.com/p/94ca8a284ebb)
 
+[Retrofit2文件上传下载及其进度显示](http://ittiger.cn/Retrofit2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%85%B6%E8%BF%9B%E5%BA%A6%E6%98%BE%E7%A4%BA.html)
+
 
 
 ### 账号验证
@@ -308,6 +500,12 @@ alert_edittext.xml
 ### 即时通讯
 
 [源码提供！Android即时通讯和sns开源项目汇总](http://www.jianshu.com/p/b2ca52337fe5)
+
+
+
+### 视频播放
+
+[TigerVideo](https://github.com/huyongli/TigerVideo)
 
 
 
@@ -385,6 +583,16 @@ alert_edittext.xml
 
 ### Demo效果
 
+#### Demo集合
+
+[泡在网上的日子demo收集大全](http://www.jcodecraeer.com/plus/list.php?tid=31&codecategory=22000)
+
+[泡在网上的日子demo收集大全2](http://www.jcodecraeer.com/plus/list.php?tid=31&TotalResult=1217&PageNo=1)
+
+[Android全能网站](http://android.ctolib.com/)
+
+
+
 #### [AndroidHttpCapture](https://github.com/JZ-Darkal/AndroidHttpCapture)
 
 > AndroidHttpCapture网络诊断工具 是一款针对于移动流量劫持而开发的手机抓包软件
@@ -427,6 +635,53 @@ alert_edittext.xml
 - 夜间模式实践
 - 最新版本获取
 - 分享接口的实现
+
+
+
+
+#### [GeekNews](https://github.com/codeestX/GeekNews)
+
+> A pure reading App based on Material Design + MVP + RxJava + Retrofit + Dagger2 + Realm + Glide
+
+采用的技术：
+
+- 使用RxJava配合Retrofit2做网络请求
+- 使用RxUtil对线程操作和网络请求结果处理做了封装
+- 使用RxPresenter对订阅的生命周期做管理
+- 使用RxBus来方便组件间的通信
+- 使用RxJava其他操作符来做延时、轮询、转化、筛选等操作
+- 使用okhttp3对网络返回内容做缓存，还有日志、超时重连、头部消息的配置
+- 使用Material Design控件和动画
+- 使用MVP架构整个项目，对应于model、ui、presenter三个包
+- 使用Realm做阅读记录和收藏记录的增、删、查、改
+- 使用Glide做图片的处理和加载
+- 使用Fragmentation简化Fragment的操作和懒加载
+- 使用RecyclerView实现下拉刷新、上拉加载、侧滑删除、长按拖曳
+- 使用x5WebView做阅览页，比原生WebView体验更佳
+- 使用SVG及其动画实现progressbar的效果
+- 使用EasyPermissions做6.0+动态权限适配
+- 使用原生的夜间模式、分享、反馈
+- 包含搜索、收藏、检测更新等功能
+- 开启页的展示
+- 选择日期的功能
+- 向上滑动，底部栏会出现，向下滑动，底部栏会消失
+- 直接复制到粘贴板
+
+
+
+
+#### [StylishMusicPlayer](https://github.com/ryanhoo/StylishMusicPlayer)
+
+> A stylish music player for android device 16+
+
+采用的技术：
+
+- RxJava
+- RxAndroid
+- Retrofit
+- Butter Knife
+- Calligraphy
+- LiteOrm
 
 
 
@@ -484,6 +739,92 @@ alert_edittext.xml
 [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
 
 > Powerful and flexible RecyclerAdapter，封装了很多用法
+
+
+
+[CaptchaImageView](https://github.com/jineshfrancs/CaptchaImageView)
+
+> 自定义验证码
+
+
+
+[GSYVideoPlayer](https://github.com/CarGuo/GSYVideoPlayer)
+
+> 视频播放器（IJKplayer），支持基本的拖动，声音、亮度调节，支持边播边缓存，支持视频本身自带rotation的旋转（90,270之类），重力旋转与手动旋转的同步支持，支持列表播放 ，直接添加控件为封面，列表全屏动画，视频加载速度，列表小窗口支持拖动，5.0的过场效果，调整比例，多分辨率切换，支持切换播放器，其他一些小动画效果。
+
+
+
+[ijkplayer](https://github.com/Bilibili/ijkplayer)
+
+> Bilibili出的视频播放器
+
+
+
+[ExpandableTextView](https://github.com/Chen-Sir/ExpandableTextView)
+
+> 可以展开的TextView
+
+
+
+[GaussianBlur](https://github.com/jrvansuita/GaussianBlur)
+
+> 高斯模糊
+
+
+
+[Android路由框架设计与实现](http://www.sixwolf.net/blog/2016/03/23/Android%E8%B7%AF%E7%94%B1%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1/)
+
+> 像在Web开放中一样使用一个url来打开一个Activity
+
+
+
+[RxDownload](https://github.com/ssseasonnn/RxDownload)
+
+> 基于RxJava和Retrofit打造的下载工具, 支持多线程下载和断点续传, 智能判断是否支持断点续传等功能
+
+
+
+[SwipeCaptcha](https://github.com/mcxtzhang/SwipeCaptcha)
+
+> Android 平台的滑动验证码
+
+
+
+[ZXingGenerator](https://github.com/vivian8725118/ZXingGenerator)
+
+> 花式二维码生成，提供了6种样式
+
+
+
+[TriStateToggleButton](https://github.com/BeppiMenozzi/TriStateToggleButton)
+
+> 三种状态的按钮
+
+
+
+[ShareUtil](https://github.com/shaohui10086/ShareUtil)
+
+> 社会化登录分享工具库
+
+
+
+[AdvancedLuban](https://github.com/shaohui10086/AdvancedLuban)
+
+> 高效、简洁的图片压缩工具库
+
+
+
+[Luban](https://github.com/Curzibn/Luban)
+
+> 可能是最接近微信朋友圈的图片压缩算法
+
+
+
+[loadtoast](https://github.com/code-mc/loadtoast)
+
+> 请求信息反馈动画框
+
+
 
 
 
