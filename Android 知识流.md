@@ -233,6 +233,12 @@ alert_edittext.xml
 
 
 
+#### ViewPager
+
+[听说你想用ViewPager实现这样的效果](http://www.jianshu.com/p/eaea9eb2e80c)
+
+
+
 #### RecyclerView左右滑动
 
 [仿知乎的侧滑删除](http://blog.csdn.net/tyk0910/article/details/51669205)

@@ -1,28 +1,69 @@
 ## WEB后台知识
 
+### HTTP服务器
 
+HTTP服务器本质上也是一种应用程序——它通常运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求，这样客户端（一般来说是IE, Firefox，Chrome这样的浏览器）就能够通过HTTP协议来获取服务器上的网页（HTML格式）、文档（PDF格式）、音频（MP4格式）、视频（MOV格式）等等资源。下图描述的就是这一过程：
 
-### Web服务器
+![img](img/httpsever.png)
+其实绝大多数编程语言所包含的类库中也都实现了简单的HTTP服务器方便开发者使用：
 
-**Web服务器作用**
+- HttpServer (Java HTTP Server )
+- Python SimpleHTTPServer
 
-专门处理客户端的HTTP请求，返回响应内容，使浏览器可以浏览网站的内容
+使用这些类库能够非常容易的运行一个HTTP服务器，它们都能够通过绑定IP地址并监听tcp端口来提供HTTP服务。
 
 
 
 #### Apache服务器
 
-Apache是一个用C语言编写的web服务器环境程序，启用它可以作为web服务器使用，不过只支持静态网页（HTML）
+Apache HTTP Server能够将某一个文本文件的内容通过HTTP协议返回到客户端，但是这个文本文件的内容是固定的——也就是说无论何时、任何人访问它得到的内容都是完全相同的，这样的资源我们称之为静态资源。
 
 
 
 #### Tomcat服务器
 
-Tomcat是用Java语言编写的运行在Apache上的应用服务器，支持动态页面（ASP, PHP, JSP)
+Apache Tomcat是Apache基金会下的另外一个项目，它运行在JVM之上，和HTTP服务器一样，绑定IP地址并监听TCP端口。与Apache HTTP Server相比，Tomcat能够动态的生成资源并返回到客户端。动态资源与静态资源相反，在不同的时间、不同的客户端访问得到的内容是不同的。它也是一个servlet容器，可以认为是apache的扩展，但是可以独立于apache运行。
 
-它是一个servlet容器，可以认为是apache的扩展，但是可以独立于apache运行。  
+<img src="img/webtomcat.png" width="700px"/>
 
-![](http://www.maijinta.cn/user/files/tomcat.png)
+
+
+##### 职责
+
+管理Servlet程序的生命周期将URL映射到指定的Servlet进行处理与Servlet程序合作处理HTTP请求——根据HTTP请求生成HttpServletResponse对象并传递给Servlet进行处理，将Servlet中的HttpServletResponse对象生成的内容返回给浏览器
+虽然Tomcat也可以认为是HTTP服务器
+
+
+
+##### 下载
+
+<img src="img/tomcat.png" width="800px" />
+
+
+
+#### Nginx
+
+Nginx——Ngine X，是一款自由的、开源的、高性能HTTP服务器和反向代理服务器
+
+
+
+##### 反向代理
+
+反向代理服务器作用在服务器端，它在服务器端接收客户端的请求，然后将请求分发给具体的服务器进行处理，然后再将服务器的相应结果反馈给客户端。正向代理就是我们用VPN来访问外网的时候一样。
+
+![](img/daili.jpg)
+
+正向代理中，proxy和client同属一个LAN，对server透明；
+反向代理中，proxy和server同属一个LAN，对client透明。
+实际上proxy在两种代理中做的事都是代为收发请求和响应，不过从结构上来看正好左右互换了下，所以把后出现的那种代理方式叫成了反向代理。
+
+
+
+##### Tomcat和Nginx配合
+
+动静态资源分离——运用Nginx的反向代理功能分发请求：所有动态资源的请求交给Tomcat，而静态资源的请求（例如图片、视频、CSS、JavaScript文件等）则直接由Nginx返回到浏览器，这样能大大减轻Tomcat的压力。负载均衡，当业务压力增大时，可能一个Tomcat的实例不足以处理，那么这时可以启动多个Tomcat实例进行水平扩展，而Nginx的负载均衡功能可以把请求通过算法分发到各个不同的实例进行处理
+
+![](img/Nginx_Tomcat.png)
 
 
 
@@ -926,7 +967,7 @@ pageContetx对象是jsp页面中所有对象功能的最大集成着。
 
 **转发和重定向示意图**
 
-![](http://www.maijinta.cn/user/files/Forward_Redirect.png)
+![](img/Forward_Redirect.png)
 
 
 
@@ -1084,7 +1125,7 @@ dologin.jsp
 
 #### 过滤器的工作原理
 
-![](http://www.maijinta.cn/user/files/filter.png)
+![](img/filter.png)
 
 
 
@@ -1174,7 +1215,7 @@ public class EncodingFilter implements Filter {
 
 当用户发送请求请求Web资源时，过滤器1会首先获取用户的请求，对请求进行过滤，然后执行FilterChain.doFilter()将请求发送给过滤器2，过滤器2在过滤了用户请求之后执行FilterChain.doFilter()方法请求实际的Web资源，Web资源的响应将首先被过滤器2获取，在过滤器2对响应进行过滤之后将响应传递给过滤器1，在过滤器1过滤之后才将响应发送给用户。
 
-![](http://www.maijinta.cn/user/files/doFilter.png)
+![](img/doFilter.png)
 
 
 
