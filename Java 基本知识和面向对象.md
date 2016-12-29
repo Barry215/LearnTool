@@ -39,7 +39,7 @@
 
 >  PS：泛型定义时也不支持数据类型，只能是类
 >
-> 如`List<int>`就不行，但是`List<Integer>`可以
+>  如`List<int>`就不行，但是`List<Integer>`可以
 
 
 
@@ -437,7 +437,7 @@ public class StaticBlock {
 
 ### 数据结构
 
-  ![collection](http://www.maijinta.cn/user/files/collection.png)
+  ![collection](img/collection.png)
 
 - Collection (接口)
 - List (接口)
@@ -481,7 +481,7 @@ while(it.hasNext()){
 
 
 
- ![map](http://www.maijinta.cn/user/files/map.png)
+ ![map](img/map.png)
 
 - Map (接口)
   - HashMap (实现类)

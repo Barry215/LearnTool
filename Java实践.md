@@ -212,10 +212,10 @@ try {
   - FTP 是File Transfer Protocol（文件传输协议）的英文简称，而中文简称为“文传协议”。用于Internet上的控制文件的双向传输。同时，它也是一个应用程序。基于不同的操作系统有不同的FTP应用程序，而所有这些应用程序都遵守同一种协议以传输文件。在FTP的使用当中，用户经常遇到两个概念："下载"和"上传"。"下载"文件就是从远程主机拷贝文件至自己的计算机上；"上传"文件就是将文件从自己的计算机中拷贝至远程主机上。用Internet语言来说，用户可通过客户机程序向（从）远程主机上传（下载）文件。
 - ftp地址
   - [ftp://www.maijinta.top](ftp://www.maijinta.top)
-  - 账号：www
-  - 密码：23q9JI8BeNUY
+  - 账号：admin
+  - 密码：000000
 
-![internet中的FTP和Http区别](http://www.maijinta.cn/user/files/internet.png)
+![internet中的FTP和Http区别](img/internet.png)
 
 - ftp和http的区别
   - Http，FTP是应用层协议，HTTP用来传输超文本而FTP用来传文件
@@ -641,7 +641,7 @@ Git是目前世界上最先进的分布式版本控制系统，以其优秀的�
 
 #### Git命令
 
-![git](http://www.maijinta.cn/user/files/git.png)
+![git](img/git.png)
 
 - workspace: 本地的工作目录。（记作A）
 - index：缓存区域，临时保存本地改动。（记作B）

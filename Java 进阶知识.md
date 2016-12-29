@@ -2,7 +2,7 @@
 
 ### 异常
 
-![exception](http://www.maijinta.cn/user/files/exception.jpg)
+![exception](img/exception.jpg)
 
 - Error
 
@@ -328,7 +328,7 @@ public class ThreadClassDemo
 
 ### IO处理
 
-![IO图](http://www.maijinta.cn/user/files/IO.jpeg)
+![IO图](img/IO.jpeg)
 
 - **字节和字符的关系**
   - 1个字节＝8位
