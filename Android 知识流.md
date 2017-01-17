@@ -103,6 +103,8 @@ alert_edittext.xml
 
 [RecyclerView下拉刷新上拉加载](http://ittiger.cn/RecyclerView%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0%E4%B8%8A%E6%8B%89%E5%8A%A0%E8%BD%BD.html)
 
+[对RecyclerView Item做动画](https://ruzhan123.github.io/2016/07/01/2016-07-01-01-%E5%AF%B9RecyclerViewItem%E5%81%9A%E5%8A%A8%E7%94%BB/)
+
 
 
 #### 轮播图
@@ -140,6 +142,8 @@ alert_edittext.xml
 #### ViewPager
 
 [FragmentPagerAdapter和FragmentStatePagerAdapter区别](http://blog.csdn.net/dreamzml/article/details/9951577)
+
+[A Material Design ViewPager easy to use library](https://github.com/florent37/MaterialViewPager)
 
 
 
@@ -246,6 +250,8 @@ alert_edittext.xml
 [RecyclerView侧滑菜单，RecyclerView滑动删除，RecyclerView长按拖拽](http://www.jianshu.com/p/3ea18300f40c) ✨
 
 [RecyclerView的拖动、滑动删除](https://segmentfault.com/a/1190000005645907)
+
+[左右滑动库](https://github.com/vcalvello/SwipeToAction)
 
 
 
@@ -835,6 +841,82 @@ public class PreferenceUtils {
 > 请求信息反馈动画框
 
 
+
+[HollyViewPager](https://github.com/florent37/HollyViewPager)
+
+> 有预览的viewpager
+
+
+
+[CircleProgress](https://github.com/lzyzsd/CircleProgress)
+
+> 圆形进度条
+
+
+
+[FABProgressCircle](https://github.com/JorgeCastilloPrz/FABProgressCircle)
+
+> 带有FAB的进度圈
+
+
+
+[Android-Week-View](https://github.com/alamkanak/Android-Week-View)
+
+> 一周的计划日历
+
+
+
+[MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+
+> 一款强大的图表
+
+
+
+[ShineButton](https://github.com/ChadCSong/ShineButton)
+
+> 有动画的花式点赞和收藏
+
+
+
+[android-floating-action-button](https://github.com/futuresimple/android-floating-action-button)
+
+> 会弹出来的FAB
+
+
+
+[material-sheet-fab](https://github.com/gowong/material-sheet-fab)
+
+> 通过点击FAB出来的菜单
+
+
+
+[bottomsheet](https://github.com/Flipboard/bottomsheet)
+
+> 出一半的底部菜单
+
+
+
+[android-process-button](https://github.com/dmytrodanylyk/android-process-button)
+
+> 可以显示加载进度的按钮
+
+
+
+[circular-progress-button](https://github.com/dmytrodanylyk/circular-progress-button)
+
+> 可以显示加载进度的圆形按钮
+
+
+
+[RecyclerViewSwipeDismiss](https://github.com/CodeFalling/RecyclerViewSwipeDismiss)
+
+> 可以拖动删除的RecyclerView
+
+
+
+[AndroidTreeView](https://github.com/bmelnychuk/AndroidTreeView)
+
+> 目录树
 
 
 
