@@ -702,6 +702,47 @@ public class PreferenceUtils {
 
 
 
+#### [CloudReader](https://github.com/youlookwhat/CloudReader)
+
+> 一个仿网易云音乐UI，使用Gank.Io及豆瓣Api开发的开源项目
+
+采用的技术：
+
+- 干货集中营内容与豆瓣电影书籍内容。
+- 高仿网易云音乐歌单详情页。
+- NavigationView搭配DrawerLayout的具体使用。
+- MvvM-DataBing的项目应用。
+- RxBus代替EventBus进行组件之间通讯。
+- ToolBar及TabLayout的使用姿势。
+- Glide加载监听，获取缓存，圆角图片，高斯模糊。
+- 水波纹点击效果详细使用与适配。
+- RecyclerView下拉刷新上拉加载。
+- 基于DataBinding的ViewHolder。
+- 基于DataBinding的BaseActivity和BaseFragment。
+- Fragment懒加载模式。
+- 沉浸式状态栏使用与版本适配。
+- SwipeRefreshLayout结合RecyclerView下拉刷新上拉加载。
+- CoordinatorLayout + Behavior实现标题栏渐变。
+- NestedScrollView嵌套RecyclerView的使用。
+
+
+
+
+[GanHuoIO](https://github.com/burgessjp/GanHuoIO)
+
+> 基于Gank.IO提供的API的第三方客户端（RxJava+Retrofit）
+
+主要特色：
+
+- 基于 Material Design，项目中覆盖了 MVP、RxJava、Retrofit、第三方登录以及很多第三方库的使用。
+- App可以即时的检查最新版本，还支持下载
+- 有底部浏览bar
+
+
+
+
+
+
 ### 轮子
 
 [A library for debugging android databases and shared preferences](https://github.com/amitshekhariitbhu/Android-Debug-Database)
@@ -917,6 +958,66 @@ public class PreferenceUtils {
 [AndroidTreeView](https://github.com/bmelnychuk/AndroidTreeView)
 
 > 目录树
+
+
+
+[excelPanel](https://github.com/zhouchaoyuan/excelPanel)
+
+> 课表类似的excel界面
+
+
+
+[MarqueeViewLibrary](https://github.com/gongwen/MarqueeViewLibrary)
+
+> 跑马灯类似的移动公告
+
+
+
+[CounterFab](https://github.com/andremion/CounterFab)
+
+> 可以在FAB上显示消息数量
+
+
+
+[ValidationUtilsLibrary](https://github.com/sgaikar1/ValidationUtilsLibrary)
+
+>可以显示提示的EditText
+
+
+
+[AnimShopButton](https://github.com/mcxtzhang/AnimShopButton)
+
+> 一个带伸缩位移旋转动画的购物车按钮
+
+
+
+[RxFingerPrinter](https://github.com/Zweihui/RxFingerPrinter)
+
+> 用rxjava简单封装了指纹识别，顺便撸了一个指纹控件
+
+
+
+[TopRightMenu](https://github.com/zaaach/TopRightMenu)
+
+> 类似手机QQ界面右上角的弹出菜单
+
+
+
+[material-about-library](https://github.com/daniel-stoneuk/material-about-library)
+
+> material风格的关于页面
+
+
+
+[ImagePicker](https://github.com/martin90s/ImagePicker)
+
+> 功能超强的图片选择器
+
+
+
+[Toasty](https://github.com/GrenderG/Toasty)
+
+> 带有图片的toast
 
 
 
