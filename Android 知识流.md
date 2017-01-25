@@ -211,6 +211,12 @@ alert_edittext.xml
 
 
 
+#### Webview
+
+[用js调用安卓接口](http://blog.csdn.net/a153614131/article/details/50353256)
+
+
+
 ### UI效果
 
 #### 搜索框
@@ -589,6 +595,12 @@ public class PreferenceUtils {
 
 
 
+#### 截屏
+
+[使用grade的命令行做gif](http://blog.csdn.net/a153614131/article/details/54137734)
+
+
+
 ### 错误锦集
 
 [Android Studio出现Error:No service of type Factory available in ProjectScopeServices](http://www.jianshu.com/p/c4f4894ad215)
@@ -728,7 +740,7 @@ public class PreferenceUtils {
 
 
 
-[GanHuoIO](https://github.com/burgessjp/GanHuoIO)
+#### [GanHuoIO](https://github.com/burgessjp/GanHuoIO)
 
 > 基于Gank.IO提供的API的第三方客户端（RxJava+Retrofit）
 
@@ -738,6 +750,30 @@ public class PreferenceUtils {
 - App可以即时的检查最新版本，还支持下载
 - 有底部浏览bar
 
+
+
+
+[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
+
+> 高仿高仿哔哩哔哩动画安卓客户端
+
+采用技术：
+
+- [RxJava](https://github.com/ReactiveX/RxJava)
+- [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+- [RxBinding](https://github.com/JakeWharton/RxBinding)
+- [RxLifecycle](https://github.com/trello/RxLifecycle)
+- [RxCache](https://github.com/VictorAlbertos/RxCache)
+- [okhttp](https://github.com/square/okhttp)
+- [retrofit](https://github.com/square/retrofit)
+- [ijkplayer](https://github.com/Bilibili/ijkplayer)
+- [DanmakuFlameMaster](https://github.com/Bilibili/DanmakuFlameMaster)
+- [butterknife](https://github.com/JakeWharton/butterknife)
+- [glide](https://github.com/bumptech/glide)
+- [MaterialSearchView](https://github.com/MiguelCatalan/MaterialSearchView)
+- [FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)
+- [MagicaSakura](https://github.com/Bilibili/MagicaSakura)
+- [FlowLayout](https://github.com/hongyangAndroid/FlowLayout)
 
 
 
@@ -1018,6 +1054,66 @@ public class PreferenceUtils {
 [Toasty](https://github.com/GrenderG/Toasty)
 
 > 带有图片的toast
+
+
+
+[RecyclerStickyHeaderView](https://github.com/TellH/RecyclerStickyHeaderView)
+
+> 吸顶RecyclerView
+
+
+
+[StickyHeaderListView](https://github.com/smuyyh/StickyHeaderListView)
+
+> 仿滴滴打车开具发票页，ListView粘性Header
+
+
+
+[TimerView](https://github.com/fashare2015/TimerView)
+
+> 一个解耦良好的计时控件，可自由扩展。
+
+
+
+[EdgeTranslucent](https://github.com/qinci/EdgeTranslucent)
+
+> Android 任意View边沿渐变透明
+
+
+
+[BottomMenuTutorial](https://github.com/fccaikai/BottomMenuTutorial)
+
+> 底部menu弹出,抽屉控件
+
+
+
+[plaid](https://github.com/nickbutcher/plaid)
+
+> 上划退出
+
+
+
+[ShareElementDemo](https://github.com/fashare2015/ShareElementDemo)
+
+> 下拉回退和过场动画两个效果
+
+
+
+[BottomNavigationViewEx](https://github.com/ittianyu/BottomNavigationViewEx)
+
+> 一个增强BottomNavigationView的安卓库
+
+
+
+[PictureSelector](https://github.com/LuckSiege/PictureSelector)
+
+> 兼容性超强的图片选择器
+
+
+
+[LinkedScrollDemo](https://github.com/fashare2015/LinkedScrollDemo)
+
+> 一个仿饿了么订餐页面的双列表联动Demo
 
 
 
