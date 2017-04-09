@@ -259,6 +259,8 @@ alert_edittext.xml
 
 [左右滑动库](https://github.com/vcalvello/SwipeToAction)
 
+[AndroidSwipeLayout](https://github.com/daimajia/AndroidSwipeLayout)
+
 
 
 #### 实现 Toolbar 随着 RecyclerView 的滚动而显示 / 隐藏 的效果
@@ -753,7 +755,7 @@ public class PreferenceUtils {
 
 
 
-[bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
+#### [bilibili-android-client](https://github.com/HotBitmapGG/bilibili-android-client)
 
 > 高仿高仿哔哩哔哩动画安卓客户端
 
@@ -775,6 +777,14 @@ public class PreferenceUtils {
 - [MagicaSakura](https://github.com/Bilibili/MagicaSakura)
 - [FlowLayout](https://github.com/hongyangAndroid/FlowLayout)
 
+
+
+
+[阅读视频类APP-MD](https://github.com/jiangzehui/MD)
+
+采用的技术：
+
+Retrotfit2.1+Material Design+ijkplayer 
 
 
 
@@ -1114,6 +1124,32 @@ public class PreferenceUtils {
 [LinkedScrollDemo](https://github.com/fashare2015/LinkedScrollDemo)
 
 > 一个仿饿了么订餐页面的双列表联动Demo
+
+
+
+[ByeBurger](https://github.com/githubwing/ByeBurger)
+
+> 极其简便的快速实现滑动隐藏标题栏和导航栏
+
+
+
+[TaoBaoUI](https://github.com/gnehsuy/TaoBaoUI)
+
+> 自己写的高仿淘宝界面
+
+
+
+[AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations)
+
+> 安卓的类似PPT动画
+
+
+
+[Router](https://github.com/daimajia/Router)
+
+> 代码家做的安卓路由
+
+
 
 
 
